@@ -6,7 +6,7 @@
 
 // Function prototypes
 void printBurger(int d, int t, int f);
-void printSalad(int d);
+void printSalad(int d, int f);
 void printDelivery(char *address);
 
 int main(int argc, char *argv[]) {
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
         if (strcmp(command, "burger") == 0) {
             printBurger(d_flag, t_flag, f_flag);
         } else {
-            printSalad(d_flag);
+            printSalad(d_flag, f_flag);
         }
     } else if (strcmp(command, "delivery") == 0) {
         static struct option long_options[] = {
@@ -108,7 +108,7 @@ void printBurger(int d, int t, int f) {
     }
 }
 
-void printSalad(int d) {
+void printSalad(int d, int f) {
     printf("  ^#^#^#^  \n");
     printf(" /------\\ \n");
     printf("| SALAD  |\n");
@@ -121,6 +121,14 @@ void printSalad(int d) {
         printf("  |    |\n");
         printf("  \\____/ \n");
     }
+
+    if (f) {
+        printf(" FRIES \n");
+        printf(" ||||  \n");
+        printf(" |  |  \n");
+        printf(" |__|  \n");
+    }
+
 }
 
 void printDelivery(char *address) {
